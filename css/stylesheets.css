@@ -1,0 +1,88 @@
+@import url('bootstrap.css');
+/*@import url('font-awesome.css');*/
+/*@import url('bootstrap-responsive.css');*/
+
+body {
+  padding-top: 40px; /* When using the navbar-top-fixed */
+  background-image: url('../img/concrete_wall.png');
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
+}
+
+/* commented out change in navbar color for now.
+.navbar-inner{
+  background-color: orange;
+  background-image: none;
+}
+*/
+#welcome {
+  background-image: url('../img/grunge_wall.png');
+  height: 250px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+.welcome_box {
+  background-color: whitesmoke;
+  padding: 25px 30px;
+  margin-top: 40px;
+  width: 700px auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  -webkit-box-shadow: 0 -1px 10px rgba(0,0,0,0.17);
+   -moz-box-shadow: 0 -1px 10px rgba(0,0,0,0.17);
+   box-shadow: 0 -1px 10px rgba(0,0,0,0.17);
+}
+
+footer {
+  color: white;
+  margin: 25px 0px;
+  padding-bottom: 0px;
+}
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+footer ul li { 
+  display: inline; 
+}
+
+footer ul li a {
+  text-decoration: none;
+  padding: .2em 1em;
+  color: #fff;
+}
+
+footer ul li a:hover
+{
+color: blue;
+text-decoration: none;
+}
+
+.thumbnails h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.art-info {
+  margin-left: 70px;
+}
+
+
+/* GENERIC STYLINGS FOR THE WEBSITE*/
+
+.white {
+  background-color: white;
+  min-height: 600px;
+}
+
+.paddingtop40 {
+  padding-top: 40px;
+}
+
+.center {
+  text-align: center;
+}
