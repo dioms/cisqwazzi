@@ -34,8 +34,16 @@
           
         </ul>
         <ul class="nav pull-right">
-          <li><a href="#"> Sign In </a></li>
-          <li><a href="user_signup.php"> Sign Up </a></li>
+          <?php 
+          if (!$_SESSION["loggedIn"]) { 
+            echo '<li><a href="user_signin.php"> Sign In </a></li>';
+            echo '<li><a href="user_signup.php"> Sign Up </a></li>';
+          } 
+          else {
+            echo '<li><a href="user_logout.php"> Sign Out </a></li>';
+          }
+
+          ?>
         </ul>
 
 

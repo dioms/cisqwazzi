@@ -1,6 +1,12 @@
 <?php
 include_once('functions.php');
 include_once('header.php');
+
+  // if(isset($_SESSION["name"]))
+  // {
+  //   header('Location: user_welcome.php');
+  //   exit;
+  // }
 ?>
 
 <div class="container paddingtop40">

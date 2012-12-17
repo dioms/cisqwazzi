@@ -1,6 +1,8 @@
 <?php
 include_once('functions.php');
 include_once('header.php');
+
+  
 ?>
 
 <div class="container paddingtop40">
@@ -8,10 +10,16 @@ include_once('header.php');
     <div class="span12">
       
       <?php
-       
-          echo 'Welcome (username)! ';
-          echo "Welcome back bro! You are logged in as " . $_SESSION["name"] . ".";
+      // if(!isset($_SESSION["name"]))
+      // {
+      //   header('Location: user_signin.php');
+      //   exit;
+      // } 
+        echo "Welcome back " . $_SESSION["name"] . ".";
+        echo  '<a href="user_logout.php">log out </a>';
+      
       ?>
+
 
 
       </div> <!-- close span -->
