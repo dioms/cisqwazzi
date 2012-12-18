@@ -6,6 +6,20 @@ include_once('header.php');
 <!--portfolio slider -->
 <div id="welcome">
   <div class="container">
+    <? $mess = isset($_REQUEST['mess']) ? $_REQUEST['mess'] : null;
+        if($mess == 1) {
+          echo '<div class="alert alert-success">';
+          echo "Welcome back " . $_SESSION["name"] . ".  ";
+          echo  '<a href="user_logout.php">log out </a>';
+          echo '</div>';
+        }
+        if($mess == 2) {
+          echo '<div class="alert alert-success">';
+          echo "You are already logged in as " . $_SESSION["name"] . ".  ";
+          echo  '<a href="user_logout.php">log out </a>';
+          echo '</div>';
+        }
+    ?>
     <div class="welcome_box">
      <h1> Welcome to Qwazzi! </h1>
       <h4> Your number one place to buy contemporary canvas art. </h4>

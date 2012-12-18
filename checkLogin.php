@@ -41,7 +41,7 @@ if (mysqli_num_rows($result)==0)
   $_SESSION['name']= $row['name'];
   $_SESSION['user_id'] = $row['user_id'];
   $_SESSION["loggedin"] = true;
-  header('Location: user_welcome.php');
+  header('Location: index.php?mess=1');
   exit;
   }
 //pass a error 3 to customerLogin.php for testing

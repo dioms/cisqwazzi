@@ -2,12 +2,11 @@
 include_once('functions.php');
 include_once('header.php');
 
-  // if(isset($_SESSION["loggedin"]))
-  // {
-  //   header('Location: user_welcome.php');
-  //   exit;
-  // }
-  
+  if(isset($_SESSION["loggedin"]))
+  {
+   header('Location: index.php?mess=2');
+  }
+
 ?>
 
 <div class="container paddingtop40">
@@ -18,25 +17,21 @@ include_once('header.php');
         //show appropriate messaging for invalid user names
         if($_GET["lerror"]==1)
         {
-          echo '<p class="loginerror">User Name not found!</p>';
+          echo '<div class="alert alert-error">User Name not found!</div>';
         }
         if($_GET["lerror"]==2)
         {
-          echo '<p class="loginerror">Invalid Password!</p>';
+          echo '<div class="alert alert-error">Invalid Password!</div>';
         }
         if($_GET["lerror"]==3)
         {
-          echo '<p class="loginerror">Returned.. Please log in </p>';
+          echo '<div class="alert alert-error">Returned.. Please log in </div>';
         }
         if($_GET["lerror"]==4)
         {
-          echo '<p class="loginerror"> Please fill in both username and password. </p>';
+          echo '<div class="alert alert-error"> Please fill in both username and password. </div>';
         }
-        if($_GET["welcome"])
-        {
-          echo 'Welcome (username)! ';
-          echo "Welcome back bro! You are logged in as " . $_SESSION["name"] . ".";
-        }
+        
       ?>
 
 

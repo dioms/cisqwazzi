@@ -42,7 +42,7 @@
           } 
           else {
 
-            echo '<li><a href="shopping_cart.php?user_id="'.$_SESSION['user_id'].'> My Cart</a></li>';
+            echo '<li><a href="shopping_cart.php"'.$_SESSION['user_id'].'><i class="icon-shopping-cart icon-white"></i> My Cart</a></li>';
             echo '<li><a href="#">'. $_SESSION['user_id'] . $_SESSION['name'] .'</a></li>';
             echo '<li><a href="user_logout.php"> Sign Out </a></li>';
           }
