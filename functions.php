@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 //functions.php
 $dbhost  = 'localhost';    // Unlikely to require changing
 //$dbname  = 'root'; // Modify these...
@@ -13,5 +13,5 @@ $dbc = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname)
 
 // mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error());
 // mysql_select_db($dbname) or die(mysql_error());
-
+session_start();
 ?>

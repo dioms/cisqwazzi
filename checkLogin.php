@@ -39,6 +39,7 @@ if (mysqli_num_rows($result)==0)
   // SET THE SESSIONS
   $row = mysqli_fetch_array($result);
   $_SESSION['name']= $row['name'];
+  $_SESSION['user_id'] = $row['user_id'];
   $_SESSION["loggedin"] = true;
   header('Location: user_welcome.php');
   exit;

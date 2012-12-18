@@ -31,7 +31,8 @@
         <ul class="nav">
 <!--           <li><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
  -->          <li><a href="#">Browse</a></li>
-          
+              <li><a href="product_upload.php">Upload</a></li>
+
         </ul>
         <ul class="nav pull-right">
           <?php 
@@ -40,7 +41,7 @@
             echo '<li><a href="user_signup.php"> Sign Up </a></li>';
           } 
           else {
-            echo '<li><a href="#">'. $_SESSION['name'] .'</a></li>';
+            echo '<li><a href="#">'. $_SESSION['user_id'] . $_SESSION['name'] .'</a></li>';
             echo '<li><a href="user_logout.php"> Sign Out </a></li>';
           }
 

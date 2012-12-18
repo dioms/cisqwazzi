@@ -1,6 +1,23 @@
 <?php
 include_once('functions.php');
 include_once('header.php');
+
+
+$tbl_name ="art";
+$art_id=$_GET['art_id'];
+
+$query="SELECT * FROM  $tbl_name WHERE art_id='$art_id'";
+$result=mysqli_query($dbc,$query);
+
+$rows=mysqli_fetch_array($result);
+
+$user_id = $rows['user_id'];
+
+$query2= "SELECT name FROM user WHERE user_id='$user_id'";
+$result2 = mysqli_query($dbc,$query2);
+$rows2 = mysqli_fetch_array($result2);
+$username = $rows2['name'];
+
 ?>
 
 <div class="container paddingtop40">
@@ -19,16 +36,16 @@ include_once('header.php');
 
     </div> <!-- close first span6 -->
     <div class="span6">
-      <h1> Title of the art work bro </h1>
-        <p>by Artist name</p>
+      <h1> <? echo $rows['title'];?> </h1>
+        <p>by <? echo $username; ?></p>
          <img src="holder.js/60x60" class="img-rounded">
 
       <hr class="soft">
 
       <div class="row">
         <div class="span6">
-          dimensions
-          <p> description of this shit </p>
+          <b>ADD Dimensions to Database</b>
+          <p> <? echo $rows['description']; ?></p>
         
        </div>  <!-- close span3 -->
       </div>

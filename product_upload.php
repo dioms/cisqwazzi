@@ -4,28 +4,31 @@ include_once ('header.php');
 ?>
 
 
-<?php
-  if(isset($_SESSION["loggedin"]))
-  {
-   ?> 
-
-
-
 
 <div class="container paddingtop40">
   <div class="row">
     <div class="span12">
+
+<?php
+  if($_SESSION["loggedin"])
+  {
+   
+
+    if($_SERVER['REQUEST_METHOD'] != 'POST') {
+    echo '
       <h1> Upload Canvas Artwork </h1>
       <br />
       
-      <form>
+      <form enctype="multipart/form-data" method="post" action="">
+        <input type="hidden" name="MAX_FILE_SIZE" value="66000" />
 
         photo
+        <input type="file" id="photo" name="photo" />
         <br />
 
         <label for="title"> Title: </label>
         <input type="text" id="title" name="title" rows="1" class="span12" placeholder="Title of contemporary canvas artwork" title="Title: 2~50 characters please"
-        pattern="[a-zA-Z- ][^\/\\]{2,50}"  autofocus required >
+        pattern="[a-zA-Z- ][^\/]{2,50}"  autofocus required >
         </textarea>
 
         <label for="description"> Description: </label>
@@ -50,28 +53,48 @@ include_once ('header.php');
         <br />
         <input type ="submit" class="btn" value="Submit" />
 
-        
-
-      </form>
+      </form>';
    
-    </div>
-  </div>
-</div>
+    }
+    else {
+      //insert into database
+      $title = $_POST['title'];
+      $description = $_POST['description'];
+      $price = $_POST['price'];
+      $quantity = $_POST['quantity'];
+      $user_id = $_SESSION['user_id'];
+      $photo = $_FILES['photo']['name'];
 
-<?php  
+      if(!empty($title) && !empty($description) && !empty($price) && !empty($quantity)) {
+        $q = "INSERT INTO art (title, description, price, quantity, user_id, photo)
+        VALUES ('$title', '$description', '$price', '$quantity', '$user_id', '$photo')";
+        mysqli_query($dbc, $q)
+        or die('Error connecting to Database');
+
+        $query = "SELECT art_id FROM art WHERE title='$title' and description='$description' and user_id ='$user_id' and photo = '$photo'";
+        $result = mysqli_query($dbc,$query);
+        $rows=mysqli_fetch_array($result);
+
+        header("location:product_show.php?art_id=".$rows['art_id']);
+      }
+
+    }
+
+
   }
   else {
     
-    echo '<div class="container paddingtop40"><div class="row"><div class="span12">';
     echo 'Please <a href="user_signin.php">login</a> to upload.';
-    echo '</div></div></div>';
+
   //WHY DOESNT THIS WORK!!!!!!!//
     //header('Location:user_signin.php?lerror=3');
   }
 
 ?>
 
-
+    </div>
+  </div>
+</div>
 
 
 
