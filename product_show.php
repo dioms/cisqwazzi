@@ -27,9 +27,7 @@ $username = $rows2['name'];
       <ul class="thumbnails">
         <li class="span6">
           (breadcrumbs)
-          <div class="thumbnail">
-            <img src="holder.js/450x300" alt="thumbnail image">
-          </div>
+            <img src="http://www.artbylt.com/Images/contemporary-art-45500.jpg" width="450" height="300" alt="thumbnail image">
           (jquery actions with zoom in to go here)
         </li>
       </ul>      
@@ -44,7 +42,6 @@ $username = $rows2['name'];
 
       <div class="row">
         <div class="span6">
-          <b>ADD Dimensions to Database</b>
           <p> <? echo $rows['description']; ?></p>
         
        </div>  <!-- close span3 -->
@@ -54,8 +51,8 @@ $username = $rows2['name'];
       
       <div class="row">
         <div class="span6">
-          Price
-        <p> in stock: x</p>
+        <p>Price: <? echo $rows['price']; ?></p>
+        <p>In Stock: <? echo $rows['quantity']; ?> </p>
 
         </div>
       </div> <!-- close nested row -->
@@ -65,10 +62,36 @@ $username = $rows2['name'];
 
       <hr class="soft">
 
-      Quantity (box)
-      <a hreft="#" class="btn btn-success "><i class="icon-shopping-cart icon-white"></i> Proceed to Checkout</a> 
+      <form class="well form-inline" method="post" action="add_to_cart.php"> 
+        <input type="hidden" name="price" value="<? echo $rows['price']; ?>" />
+        <input type="hidden" name="art_id" value="<? echo $art_id; ?>" />
+        How many do you want to buy?<br /> 
+        <? 
+        // if quantity > 0 
+        if ($rows['quantity']>0) {
+          //for loop to go from 1 to existing stock.
+         echo '<select name="quantityadded" class="span1">';
+          for($i=1; $i<=$rows['quantity']; $i++) 
+          { ?>
 
-      <a hreft="#" class="btn "><i class="icon-plus"></i> Add to Cart</a>
+              <option value="<? echo $i; ?>"><? echo $i; ?>
+              </option>
+            <?
+          } 
+          echo '</select>';
+        echo '<button type="submit" class="btn btn-success "><i class="icon-shopping-cart icon-white"></i> Add to Cart</button>';
+            
+        } //else report 'out of stock'  
+        else {
+          echo '<span class="red">Sorry... We are currently out of stock and therefore you can not add this to your cart.</span>';
+        } 
+          ?>
+
+
+      </form>
+
+<!-- 
+      <a hreft="#" class="btn "><i class="icon-plus"></i> Add to Cart</a> -->
       
 
 

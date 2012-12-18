@@ -41,6 +41,8 @@
             echo '<li><a href="user_signup.php"> Sign Up </a></li>';
           } 
           else {
+
+            echo '<li><a href="shopping_cart.php?user_id="'.$_SESSION['user_id'].'> My Cart</a></li>';
             echo '<li><a href="#">'. $_SESSION['user_id'] . $_SESSION['name'] .'</a></li>';
             echo '<li><a href="user_logout.php"> Sign Out </a></li>';
           }

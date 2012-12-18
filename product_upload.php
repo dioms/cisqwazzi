@@ -20,10 +20,10 @@ include_once ('header.php');
       <br />
       
       <form enctype="multipart/form-data" method="post" action="">
-        <input type="hidden" name="MAX_FILE_SIZE" value="66000" />
+        <input type="hidden" name="MAX_FILE_SIZE" value="32768" />
 
-        photo
-        <input type="file" id="photo" name="photo" />
+        photo:
+        <input type="file" id="photo" name="photo" required title="Please upload an image file" />
         <br />
 
         <label for="title"> Title: </label>
@@ -65,7 +65,16 @@ include_once ('header.php');
       $user_id = $_SESSION['user_id'];
       $photo = $_FILES['photo']['name'];
 
+
       if(!empty($title) && !empty($description) && !empty($price) && !empty($quantity)) {
+
+//        $target = GW_UPLOADPATH.$photo;
+//        move_uploaded_file($_FILES['photo']['tmp_name'], $target);
+
+
+        $dbc = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname)
+          or die ('Error connecting to MySQL server.');
+
         $q = "INSERT INTO art (title, description, price, quantity, user_id, photo)
         VALUES ('$title', '$description', '$price', '$quantity', '$user_id', '$photo')";
         mysqli_query($dbc, $q)
@@ -76,6 +85,7 @@ include_once ('header.php');
         $rows=mysqli_fetch_array($result);
 
         header("location:product_show.php?art_id=".$rows['art_id']);
+        
       }
 
     }
