@@ -8,7 +8,7 @@ include_once('header.php');
   <div class="container">
     <div class="welcome_box">
      <h1> Welcome to Qwazzi! </h1>
-      <h4> Your number one place to browse contemporary canvas art. </h4>
+      <h4> Your number one place to buy contemporary canvas art. </h4>
     </div>
     <!--Slider area with featured artists and shit-->
   </div>

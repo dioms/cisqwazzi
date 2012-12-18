@@ -31,18 +31,18 @@ if (mysqli_num_rows($result)==0)
   {
     header('Location: user_signin.php?lerror=2');
     exit;
-  } 
-
-// else, continue on and log user in.
+  }  // else, continue on and log user in.
+  else {  
   mysqli_close($dbc);
   session_start();
 
+  // SET THE SESSIONS
   $row = mysqli_fetch_array($result);
   $_SESSION['name']= $row['name'];
-  $_SESSION["loggedIn"] = true;
+  $_SESSION["loggedin"] = true;
   header('Location: user_welcome.php');
   exit;
-
+  }
 //pass a error 3 to customerLogin.php for testing
 header('Location: user_signin.php?lerror=3');
 exit;

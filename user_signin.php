@@ -2,11 +2,12 @@
 include_once('functions.php');
 include_once('header.php');
 
-  // if(isset($_SESSION["name"]))
+  // if(isset($_SESSION["loggedin"]))
   // {
   //   header('Location: user_welcome.php');
   //   exit;
   // }
+  
 ?>
 
 <div class="container paddingtop40">
@@ -25,7 +26,7 @@ include_once('header.php');
         }
         if($_GET["lerror"]==3)
         {
-          echo '<p class="loginerror">Returned...</p>';
+          echo '<p class="loginerror">Returned.. Please log in </p>';
         }
         if($_GET["lerror"]==4)
         {

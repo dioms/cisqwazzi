@@ -35,11 +35,12 @@
         </ul>
         <ul class="nav pull-right">
           <?php 
-          if (!$_SESSION["loggedIn"]) { 
+          if (!$_SESSION["loggedin"]) { 
             echo '<li><a href="user_signin.php"> Sign In </a></li>';
             echo '<li><a href="user_signup.php"> Sign Up </a></li>';
           } 
           else {
+            echo '<li><a href="#">'. $_SESSION['name'] .'</a></li>';
             echo '<li><a href="user_logout.php"> Sign Out </a></li>';
           }
 
@@ -60,3 +61,6 @@
   <script src="js/jquery-1.7.2.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/holder.js"></script>
+  <script src="js/wysihtml5-0.3.0.js"></script>
+  <script src="js/bootstrap-wysihtml5.js"></script>
+

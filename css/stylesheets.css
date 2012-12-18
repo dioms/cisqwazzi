@@ -1,4 +1,5 @@
 @import url('bootstrap.css');
+@import url('bootstrap-wysihtml5.css');
 /*@import url('font-awesome.css');*/
 /*@import url('bootstrap-responsive.css');*/
 
@@ -11,12 +12,26 @@ h1,h2,h3,h4,h5 {
     font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
 }
 
-/* commented out change in navbar color for now.
+/* commented out change in navbar color for now.*/
 .navbar-inner{
-  background-color: orange;
-  background-image: none;
+  background-color: none;
+  background-image: url('../img/concrete_wall.png');
 }
-*/
+.navbar .nav li a {
+  color: lightgrey;
+  text-shadow: none;
+}
+.navbar .nav li a:hover {
+  color: white;
+}
+.navbar .brand {
+  color: white;
+  font-family: 'Open Sans', 'Helvetica Neue', helvetica, sans-serif;
+}
+
+
+
+
 #welcome {
   background-image: url('../img/grunge_wall.png');
   height: 250px;
@@ -53,12 +68,12 @@ footer ul li {
 footer ul li a {
   text-decoration: none;
   padding: .2em 1em;
-  color: #fff;
+  color: lightgrey;
 }
 
 footer ul li a:hover
 {
-color: blue;
+color: white;
 text-decoration: none;
 }
 
