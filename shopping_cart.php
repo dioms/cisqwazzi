@@ -106,7 +106,8 @@ while($rows=mysqli_fetch_array($result)){
         <span class="total-price pull-right">Total Price: $<? echo $total; ?></span>
           <br /><br />
 
-        <? while($rows=mysqli_fetch_array($result)){ 
+        <? $products = array();
+          while($rows=mysqli_fetch_array($result)){ 
           $art_id = $rows['art_id'];
           $q2 = "SELECT * FROM art WHERE art_id='$art_id'";
           $r2 = mysqli_query($dbc, $q2);
@@ -114,7 +115,8 @@ while($rows=mysqli_fetch_array($result)){
           $rows2 = mysqli_fetch_array($r2);
           //quantity that was added in cart
           $qadded = $rows['quantity'];
-          $qremaining = $rows2['quantity'];?>
+          $qremaining = $rows2['quantity'];
+          array_push($products, array($art_id, $qremaining, $qadded);?>
 
         <input type="hidden" name="total" value="<? echo $total; ?>" />
         <input type="hidden" name="qadded" value="<? echo $qadded; ?>" />
@@ -122,7 +124,8 @@ while($rows=mysqli_fetch_array($result)){
         <!-- save quantity for each --> 
         <input type="hidden" name="art_id" value="<? echo $art_id; ?>" />
         <?
-      } ?>
+      } 
+         $_SESSION['products'] = $products;?>
   
   <? //check to see if cart quantity exceeds remaining stock    
   if ($notenough>0){
