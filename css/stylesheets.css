@@ -86,6 +86,16 @@ text-decoration: none;
   margin-left: 70px;
 }
 
+.cart-art-title {
+  font-weight: bold;
+  font-size: 18px;
+
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 /* GENERIC STYLINGS FOR THE WEBSITE*/
 
@@ -104,4 +114,13 @@ text-decoration: none;
 
 .red {
   color: red;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.small {
+  font-size: 90%;
+  margin-left: 8px;
 }
